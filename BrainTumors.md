@@ -58,7 +58,7 @@ df = create_dataframe(data_path)
 df
 ```
 
-![imágenes etiquetadas](image.png)
+![imágenes etiquetadas](./images/image.png)
 
 ### División del dataset en subgrupos
 
@@ -130,7 +130,7 @@ test_generator = test_datagen.flow_from_dataframe(
 )
 ```
 
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 
 Definimos y ejecutamos una función que nos muestra cada una de las imágenes del subconjunto que le mandamos junto con su etiqueta
 
@@ -165,7 +165,7 @@ show_images(train_generator)
 
 > En este caso le pasamos el subconjunto `train_generator` que obtuvimos con el bloque de código anterior pasándole `train_datagen`. Podríamos haber hecho lo mismo con `valid_generator` y `test_generator`
 
-![alt text](image-2.png)
+![alt text](./images/image-2.png)
 
 ### Modelo
 
@@ -224,7 +224,7 @@ Este resumen detalla la arquitectura del modelo **CNN** en Keras, mostrando info
 -   **Output Shape**: El tamaño de las salidas después de que los datos pasan por esa capa.
 -   **Param #**: El número de parámetros entrenables en esa capa.
 
-![alt text](image-3.png)
+![alt text](./images/image-3.png)
 
 #### Entrenamiento del modelo
 
@@ -237,7 +237,7 @@ history = model.fit(
 )
 ```
 
-![alt text](image-4.png)
+![alt text](./images/image-4.png)
 
 > El entrenamiento realizado ha sido reducido en valores de epochs debido a la falta de potencia de mi ordenador, se puede ver que con apenas 15 epochs ha tardado más de 2 horas.
 
@@ -248,7 +248,7 @@ scores = model.evaluate(test_generator)
 scores
 ```
 
-![alt text](image-5.png)
+![alt text](./images/image-5.png)
 
 Realizamos la predicción sobre el conjunto de datos de prueba utilizando el modelo y luego evaluamos el rendimiento del modelo en términos de métricas de clasificación detalladas.
 
@@ -264,7 +264,7 @@ report = classification_report(true_classes, predicted_classes, target_names=cla
 print(report)
 ```
 
-![alt text](image-6.png)
+![alt text](./images/image-6.png)
 
 Generamos una matriz de confusión para evaluar el rendimiento de tu modelo en el conjunto de datos de prueba
 
@@ -285,20 +285,20 @@ plt.show()
 
 Cada celda en la matriz de confusión muestra el número de ejemplos predichos para cada combinación de clase verdadera y clase predicha. Las diagonales representan las predicciones correctas, mientras que las celdas fuera de la diagonal representan errores de clasificación.
 
-![alt text](image-7.png)
+![alt text](./images/image-7.png)
 
 Ahora trazamos dos gráficos para visualizar el desempeño del modelo durante el entrenamiento. Uno muestra la precisión (accuracy) y el otro muestra la pérdida (loss) en función de las épocas
 
 ### Gráfico de Precisión
 
-![alt text](image-8.png)
+![alt text](./images/image-8.png)
 
 -   **Precisión en Entrenamiento:** Muestra cómo la precisión del modelo en el conjunto de entrenamiento cambia con el tiempo. Idealmente, debería aumentar y estabilizarse.
 -   **Precisión en Validación:** Muestra la precisión en el conjunto de validación. Se espera que también aumente, pero no siempre debe seguir la misma tendencia que la precisión en el entrenamiento.
 
 ### Gráfico de Pérdida
 
-![alt text](image-9.png)
+![alt text](./images/image-9.png)
 
 -   **Pérdida en Entrenamiento:** Muestra cómo disminuye la pérdida en el conjunto de entrenamiento. Idealmente, debería disminuir con el tiempo.
 -   **Pérdida en Validación:** Muestra la pérdida en el conjunto de validación. Debería disminuir, pero un aumento en la pérdida de validación puede indicar sobreajuste (overfitting).
@@ -338,6 +338,6 @@ def predict_random_images(test_df, model, class_labels, num_images=6):
 predict_random_images(test_df, model, class_labels, num_images=6)
 ```
 
-![alt text](image-10.png)
+![alt text](./images/image-10.png)
 
 Observamos que en algunos casos falla y realiza una predicción errónea>
